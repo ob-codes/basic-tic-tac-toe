@@ -30,11 +30,11 @@ function putEmoji(i){
   totalFilledBoxes++;
 
   if(firstClick){
-    document.getElementById(imagesArray[i]).src = "img/cross.png";
+    document.getElementById(imagesArray[i]).src = "img/001-cancel.png";
     values[i] = 1;
     firstClick = false;
   } else{
-    document.getElementById(imagesArray[i]).src = "img/tick.png";
+    document.getElementById(imagesArray[i]).src = "img/002-check.png";
     values[i] = 2;
     firstClick = true;
   }
