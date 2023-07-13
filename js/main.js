@@ -1,26 +1,11 @@
 let firstClick = true;
 let values = [];
 let isGameOver = false;
-  
-let box1 = document.querySelector("#box-1");
-let box2 = document.querySelector("#box-2");
-let box3 = document.querySelector("#box-3");
-let box4 = document.querySelector("#box-4");
-let box5 = document.querySelector("#box-5");
-let box6 = document.querySelector("#box-6");
-let box7 = document.querySelector("#box-7");
-let box8 = document.querySelector("#box-8");
-let box9 = document.querySelector("#box-9");
+let box = ["box-1", "box-2", "box-3", "box-4", "box-5", "box-6", "box-7", "box-8", "box-9"];
 
-box1.addEventListener("click", function(){putEmoji(0)});
-box2.addEventListener("click", function(){putEmoji(1)});
-box3.addEventListener("click", function(){putEmoji(2)});
-box4.addEventListener("click", function(){putEmoji(3)});
-box5.addEventListener("click", function(){putEmoji(4)});
-box6.addEventListener("click", function(){putEmoji(5)});
-box7.addEventListener("click", function(){putEmoji(6)});
-box8.addEventListener("click", function(){putEmoji(7)});
-box9.addEventListener("click", function(){putEmoji(8)});
+box.forEach((element, idx) => {
+  document.getElementById(element).addEventListener("click", function(){putEmoji(idx)});
+})
 
 function putEmoji(i){  
   if (isGameOver) 
