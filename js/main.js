@@ -29,18 +29,12 @@ function putEmoji(i){
 
 }
 
-function compareValues(a, b, c) {
-  let ret = false;
-  if (a==null || b==null || c==null)
-    return;
-
-  if ((a === b) && (b === c)){
-    ret = true;
-  }
-
-  return ret;
-}
-
+/*  0  |  1  |  2  
+  -----+-----+-----
+    3  |  4  |  5  
+  -----+-----+-----
+    6  |  7  |  8 
+*/
 function checkResult(){
   if (compareValues(values[0], values[1], values[2]) 
   || compareValues(values[3], values[4], values[5])
@@ -57,4 +51,16 @@ function checkResult(){
   else{
     console.log(values);
   }
+}
+
+function compareValues(a, b, c) {
+  let ret = false;
+  if (a==null || b==null || c==null)
+    return;
+
+  if ((a === b) && (b === c)){
+    ret = true;
+  }
+
+  return ret;
 }
