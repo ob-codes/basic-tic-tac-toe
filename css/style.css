@@ -1,36 +1,68 @@
 /******************************************
 /* CSS
 /*******************************************/
-
+html{
+  font-size: 62.5%;
+}
 /* Box Model Hack */
 *{
   box-sizing: border-box;
 }
 
+
 /******************************************
 /* LAYOUT
 /*******************************************/
+body{
+  background-color:#094e64;
+  color: white;
+}
+h1{
+  font-size: 4rem;
+}
+h2{
+  font-size: 3rem;
+}
+h3{
+  font-size: 2rem;
+}
+h1, h2, h3{
+  text-align: center;
+}
 img{
   display: block;
-  margin: 0 auto;
-  width: 25%;
+  margin: 30% auto;
+  width: 50%;
 }
 
 main{
-  margin:0 auto;
+  margin:100px auto;
+  padding-left: auto;
+  width: 40%;
+  height: 400px;
 }
 
-.box{
-  border: 1px solid black;
-  width: 90px;
+.box{  
+  width: 33.33%;
   height: 120px;
 }
-
 .top-row,
 .middle-row,
 .bottom-row{
   display: flex;
   flex-direction:row;
+  justify-items: center;
+  align-items: center;
+}
+.left-side{
+  border-right: 3px solid white;
+}
+.right-side{
+  border-left: 3px solid white;
+}
+.middle-row{
+  border-top: 3px solid white;
+  border-bottom: 3px solid white;
 }
 
 /******************************************

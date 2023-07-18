@@ -1,7 +1,18 @@
-let firstClick = true;
+let firstClick = true, isGameOver = false;
 let values = [];
-let isGameOver = false;
+let totalFilledBoxes = 0;
 let box = ["box-1", "box-2", "box-3", "box-4", "box-5", "box-6", "box-7", "box-8", "box-9"];
+
+let tempCrossWins = localStorage.getItem("crossWins");
+if(!tempCrossWins)
+  localStorage.setItem("crossWins", 0);
+
+let tempCircleWins = localStorage.getItem("circleWins");
+if(!tempCircleWins)
+  localStorage.setItem("circleWins", 0);
+    
+document.querySelector("#cross-wins").innerText = tempCrossWins;
+document.querySelector("#cirlce-wins").innerText = tempCircleWins;
 
 box.forEach((element, idx) => {
   document.getElementById(element).addEventListener("click", function(){putEmoji(idx)});
@@ -15,6 +26,8 @@ function putEmoji(i){
 
   if (values[i] != null)
     return;
+
+  totalFilledBoxes++;
 
   if(firstClick){
     document.getElementById(imagesArray[i]).src = "img/cross.png";
@@ -46,10 +59,22 @@ function checkResult(){
   || compareValues(values[2], values[4], values[6]))
   {
     isGameOver = true;
-    (firstClick === false) ? console.log(`winner is cross`) : console.log(`winner is circle`);
+    if (firstClick === false) {
+      document.querySelector("h2").innerText = `Winner: Cross`;
+      tempCrossWins++;
+      localStorage.setItem("crossWins", tempCrossWins);
+      document.querySelector("#cross-wins").innerText = tempCrossWins;
+    }
+    else { 
+      document.querySelector("h2").innerText = `Winner: Circle`;
+      tempCircleWins++;
+      localStorage.setItem("circleWins", tempCircleWins);
+      document.querySelector("#cirlce-wins").innerText = tempCircleWins;
+    }
   }
-  else{
-    console.log(values);
+
+  if (!isGameOver && (totalFilledBoxes>=9)) {
+    document.querySelector("h2").innerText = `Game Tied`;
   }
 }
 
