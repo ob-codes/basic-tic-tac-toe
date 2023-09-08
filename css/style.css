@@ -36,10 +36,11 @@ img{
 }
 
 main{
-  margin:100px auto;
+  margin:70px auto;
   padding-left: auto;
   width: 40%;
   height: 400px;
+  max-width:325px;
 }
 
 .box{  
